@@ -1,0 +1,31 @@
+
+.kanboardBoard {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: fit-content;
+    margin: 12pt auto;
+    border-radius: var(--kb-border-radius);
+    border: 1pt solid var(--kb-border);
+    padding: 8pt;
+    gap: 8pt;
+    background-color: var(--kb-board-background);
+}
+
+.kanboardColumn {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--kb-border-radius);
+    border: 1pt solid var(--kb-border);
+    padding: 8pt;
+    min-width: 150pt;
+    min-height: 120pt;
+}
+
+.kanbanItem {
+    border-radius: var(--kb-border-radius);
+    border: 1pt solid var(--kb-border);
+    text-align: center;
+    background-color: var(--kb-item-background);
+}

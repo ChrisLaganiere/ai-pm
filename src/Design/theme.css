@@ -1,0 +1,15 @@
+:root {
+    /* Colors */
+    --kb-white: #FFF2E0;
+    --kb-blue-1: #C0C9EE;
+    --kb-blue-2: #A2AADB;
+    --kb-blue-3: #898AC4;
+
+    /* Dimensions */
+    --kb-border-radius: 12pt;
+
+    /* Components */
+    --kb-board-background: var(--kb-white);
+    --kb-item-background: var(--kb-blue-1);
+    --kb-border: var(--kb-blue-2);
+}

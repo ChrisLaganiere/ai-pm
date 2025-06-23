@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import './Design/theme.css';
+import { KanbanBoardView } from './Components/KanbanBoard';
+import { demoFixtures } from './Fixtures/demoFixtures';
+import { formatBoard, KanbanColumn } from "./Models/KanbanModels";
 
 function App() {
+  const [items, setItems] = useState(demoFixtures())
+
+  function moveItem(itemId: string, to: KanbanColumn) {
+    setItems(items.map(i => {
+      if (i.id === itemId) {
+        i.column = to;
+      }
+      return i;
+    }))
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <KanbanBoardView board={formatBoard(items)} moveItem={moveItem} />
     </div>
   );
 }
