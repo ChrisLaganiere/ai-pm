@@ -43,7 +43,7 @@ function KanbanColumnView({
             onDragOver={handleDragOver}
             className={styles.kanboardColumn}> {
                 items.map((item) => {
-                    return <KanbanItemView item={item} />;
+                    return <KanbanItemView key={item.id} item={item} />;
                 }
             )}
         </div>
