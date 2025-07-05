@@ -7,25 +7,96 @@
     width: fit-content;
     margin: 12pt auto;
     border-radius: var(--kb-border-radius);
-    border: 1pt solid var(--kb-border);
+    border: var(--kb-border-width) solid var(--kb-border-color);
     padding: 8pt;
     gap: 8pt;
     background-color: var(--kb-board-background);
 }
 
-.kanboardColumn {
+.kanbanColumnView {
+    text-align: center;
+}
+
+.kanboardColumnBody {
     display: flex;
     flex-direction: column;
     border-radius: var(--kb-border-radius);
-    border: 1pt solid var(--kb-border);
+    border: var(--kb-border-width) solid var(--kb-border-color);
     padding: 8pt;
     min-width: 150pt;
     min-height: 120pt;
+    /* background-color: var(--kb-column-background); */
 }
 
 .kanbanItem {
     border-radius: var(--kb-border-radius);
-    border: 1pt solid var(--kb-border);
+    overflow: hidden;
+    border: var(--kb-border-width) solid var(--kb-border-color);
     text-align: center;
     background-color: var(--kb-item-background);
+    color: black;
+}
+
+.kanbanItemHeader {
+    padding: 8pt;
+}
+
+.kanbanColumnUnstarted .kanboardColumnBody {
+    background-color: var(--kb-red-half);
+}
+
+.kanbanColumnInProgress .kanboardColumnBody {
+    background-color: var(--kb-yellow-half);
+}
+
+.kanbanColumnInReview .kanboardColumnBody {
+    background-color: var(--kb-light-green-half);
+}
+
+.kanbanColumnFinished .kanboardColumnBody {
+    background-color: var(--kb-green-half);
+}
+
+.kanbanColumnReleased .kanboardColumnBody {
+    background-color: var(--kb-pastel-blue-2);
+}
+
+.kanbanColumnUnstarted .kanbanItem {
+    box-shadow: 4px 4px 0px 0px var(--kb-red);
+}
+
+.kanbanColumnInProgress .kanbanItem {
+    box-shadow: 4px 4px 0px 0px var(--kb-yellow);
+}
+
+.kanbanColumnInReview .kanbanItem {
+    box-shadow: 4px 4px 0px 0px var(--kb-light-green);
+}
+
+.kanbanColumnFinished .kanbanItem {
+    box-shadow: 4px 4px 0px 0px var(--kb-green);
+}
+
+.kanbanColumnReleased .kanbanItem {
+    box-shadow: 4px 4px 0px 0px var(--kb-pastel-blue-2);
+}
+
+.kanbanColumnUnstarted .kanbanItemHeader {
+    background-color: var(--kb-red);
+}
+
+.kanbanColumnInProgress .kanbanItemHeader {
+    background-color: var(--kb-yellow);
+}
+
+.kanbanColumnInReview .kanbanItemHeader {
+    background-color: var(--kb-light-green);
+}
+
+.kanbanColumnFinished .kanbanItemHeader {
+    background-color: var(--kb-green);
+}
+
+.kanbanColumnReleased .kanbanItemHeader {
+    background-color: var(--kb-pastel-blue-2);
 }

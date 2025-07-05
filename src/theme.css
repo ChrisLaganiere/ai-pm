@@ -1,0 +1,29 @@
+:root {
+    /* Colors: Palette 1 */
+    --kb-white: #FFF2E0;
+    --kb-pastel-blue-1: #C0C9EE;
+    --kb-pastel-blue-2: #A2AADB;
+    --kb-pastel-blue-3: #898AC4;
+
+    /* Colors: Palette 2 */
+    --kb-green: #89AC46;
+    --kb-green-half: rgb(137, 172, 70, 0.5);
+    --kb-light-green: #D3E671;
+    --kb-light-green-half: rgb(211, 230, 113, 0.5);
+    --kb-yellow: #F8ED8C;
+    --kb-yellow-half: rgb(248, 237, 140, 0.5);
+    --kb-red: #FF8989;
+    --kb-red-half: rgb(255, 137, 137, 0.5);
+
+    /* Dimensions */
+    --kb-border-radius: 12pt;
+
+    /* Components */
+    --kb-board-background: var(--kb-white);
+    /* --kb-item-background: var(--kb-blue-1); */
+    /* --kb-border: var(--kb-blue-2); */
+    --kb-column-background: var(--kb-pastel-blue-1);
+    --kb-item-background: var(--kb-white);
+    --kb-border-color: #FFFFFF;
+    --kb-border-width: 1pt;
+}

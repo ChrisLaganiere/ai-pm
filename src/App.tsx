@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './Design/theme.css';
+import './theme.css';
 import { KanbanBoardView } from './Components/KanbanBoard';
 import { demoFixtures } from './Fixtures/demoFixtures';
 import { formatBoard, KanbanColumn } from "./Models/KanbanModels";
