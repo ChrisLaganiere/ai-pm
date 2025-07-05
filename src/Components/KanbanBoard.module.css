@@ -22,10 +22,14 @@
     flex-direction: column;
     border-radius: var(--kb-border-radius);
     border: var(--kb-border-width) solid var(--kb-border-color);
-    padding: 8pt;
+    /* padding: 8pt; */
     min-width: 150pt;
-    min-height: 120pt;
+    min-height: 130pt;
     /* background-color: var(--kb-column-background); */
+}
+
+.kanbanItem:first-child {
+    margin: 8pt;
 }
 
 .kanbanItem {
@@ -35,6 +39,7 @@
     text-align: center;
     background-color: var(--kb-item-background);
     color: black;
+    margin: 0 8pt 8pt 8pt;
 }
 
 .kanbanItemHeader {

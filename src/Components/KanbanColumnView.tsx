@@ -30,11 +30,26 @@ export function KanbanColumnView({
         e.preventDefault(); // Allow dropping
     };
 
+    const title = (() => {
+        switch(column) {
+            case KanbanColumn.NotStarted:
+                return "Not Started";
+            case KanbanColumn.InProgress:
+                return "In Progress";
+            case KanbanColumn.InReview:
+                return "In Review";
+            case KanbanColumn.Completed:
+                return "Completed";
+            case KanbanColumn.Released:
+                return "Released";
+        }
+    })();
+
     const itemStyle = KanbanStyleMap[column];
 
     return (
         <div className={`${styles.kanbanColumnView} ${itemStyle}`}>
-            <h3>Unstarted</h3>
+            <h3>{title}</h3>
             <div
                 onDrop={handleDrop}
                 onDragOver={handleDragOver}
