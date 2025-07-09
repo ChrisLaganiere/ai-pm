@@ -3,27 +3,3 @@
     align-items: center;
     flex-direction: column;
 }
-
-.aiPm {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.aiPmCartoon {
-    height: 200pt;
-    width: 160pt;
-    margin: 8pt;
-}
-
-.aiPmCartoon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.aiPmSpeech {
-    font-family: 'Roboto Mono', monospace;
-    max-height: 200pt;
-    width: 200pt;
-}

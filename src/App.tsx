@@ -4,10 +4,12 @@ import { demoFixtures } from './Fixtures/demoFixtures';
 import { formatBoard, KanbanColumn } from "./Models/KanbanModels";
 import './theme.css';
 import styles from './App.module.css';
-import stalin from './Resources/stalin-pm.png';
+import { AIPM } from "./Components/AIPM";
+import { OAITokenInput } from "./Components/Menu";
 
 function App() {
   const [items, setItems] = useState(demoFixtures())
+  const [token, setToken] = useState('');
 
   function moveItem(itemId: string, to: KanbanColumn) {
     setItems(items.map(i => {
@@ -20,14 +22,8 @@ function App() {
 
   return (
     <div className={`App ${styles.KanbanHeaderView}`}>
-      <div className={styles.aiPm}>
-        <div className={styles.aiPmCartoon}>
-          <img src={stalin} alt="ai pm cartoon" />
-        </div>
-        <div className={styles.aiPmSpeech}>
-          Well, is that the best you can do?
-        </div>
-      </div>
+      <OAITokenInput token={token} setToken={setToken} />
+      <AIPM />
       <KanbanBoardView board={formatBoard(items)} moveItem={moveItem} />
     </div>
   );
