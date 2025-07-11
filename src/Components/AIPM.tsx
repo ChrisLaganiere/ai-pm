@@ -45,55 +45,55 @@ export async function* callChatCompletionsStreaming({
   apiToken: string;
   abort: AbortController;
 }) {
-  try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiToken}`,
-      },
-      method: 'POST',
-      body: JSON.stringify({
-        model: 'gpt-4o-mini',
-        messages: [{ role: 'system', content: systemPrompt }],
-        stream: true,
-      }),
-      signal: abort.signal,
-    });
+    try {
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiToken}`,
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                model: 'gpt-4o-mini',
+                messages: [{ role: 'system', content: systemPrompt }],
+                stream: true,
+            }),
+            signal: abort.signal,
+        });
 
-    if (!response.ok || !response.body) {
-      throw new Error(`OpenAI error: ${response.status}`);
-    }
-
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder('utf-8');
-
-    let partial = '';
-
-    while (true) {
-        const { value, done } = await reader.read();
-        if (done) break;
-
-        partial += decoder.decode(value, { stream: true });
-
-        for (const block of partial.split('\n\n')) {
-            if (block.trim() === '') continue;
-            if (!block.startsWith('data:')) continue;
-
-            const payload = block.slice(6).trim();
-            if (payload === '[DONE]') return;
-
-            try {
-            const json = JSON.parse(payload);
-            const delta = json.choices?.[0]?.delta?.content;
-            if (delta) {
-                yield delta;
-            }
-            } catch (err) {
-            console.error('Malformed JSON:', payload);
-            }
+        if (!response.ok || !response.body) {
+            throw new Error(`OpenAI error: ${response.status}`);
         }
 
-        partial = '';
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder('utf-8');
+
+        let partial = '';
+
+        while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+
+            partial += decoder.decode(value, { stream: true });
+
+            for (const block of partial.split('\n\n')) {
+                if (block.trim() === '') continue;
+                if (!block.startsWith('data:')) continue;
+
+                const payload = block.slice(6).trim();
+                if (payload === '[DONE]') return;
+
+                try {
+                const json = JSON.parse(payload);
+                const delta = json.choices?.[0]?.delta?.content;
+                if (delta) {
+                    yield delta;
+                }
+                } catch (err) {
+                console.error('Malformed JSON:', payload);
+                }
+            }
+
+            partial = '';
         }
     } catch (e) {
         console.error(`Error in streaming chat:`, e);
