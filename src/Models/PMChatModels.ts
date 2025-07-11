@@ -23,7 +23,7 @@ export class PMChatDataPoints {
     }
 }
 
-export function PMChatPrompt({
+export function buildPMChatSystemPrompt({
     dataPoints
 }: {
     dataPoints: PMChatDataPoints;
@@ -42,7 +42,7 @@ export function PMChatPrompt({
     * ${dataPoints.tasksCompleted} tasks completed
     * ${dataPoints.tasksReleased} tasks released
     
-    Now that I've given you these status updates, please give me a witty response!
+    Now that I've given you these status updates, please give me a witty response! But keep it super short. 1 sentence. A short sentence, even.
     `;
 }
 

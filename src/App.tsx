@@ -30,7 +30,7 @@ function App() {
   return (
     <div className={`App ${styles.KanbanHeaderView}`}>
       <OAITokenInput token={token} setToken={setToken} />
-      <AIPM board={board} />
+      <AIPM board={board} token={token ?? ''} />
       <KanbanBoardView board={board} moveItem={moveItem} />
     </div>
   );
