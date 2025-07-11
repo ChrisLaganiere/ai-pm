@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# AI PM
+
+A silly project I built in TypeScript + React. This kanban board is overseen by a caricature big tech project manager.
+
+<img width="1346" height="907" alt="Screenshot 2025-07-10 at 9 32 16 PM" src="https://github.com/user-attachments/assets/48db6691-ac52-47c5-976d-faf336f112e6" />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
